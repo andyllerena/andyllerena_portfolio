@@ -28,7 +28,7 @@ const Header = () => {
           className="flex flex-col md:flex-row justify-between items-center mt-5 gap-3 mb-20"
         >
           {/* Left side content */}
-          <div className='flex flex-col gap-3 md:gap-5'>
+          <div className='flex flex-col gap-3 md:gap-5 mr-5'>
           <h1 className={`${styles.heroHeadText} "text-black-100"}`}>Hello, I am <span className="text-[#67a0ec]">Andy.</span></h1>
             {/* Social media links */}
             <div className='flex gap-5 md:gap-7 justify-start items-center'>

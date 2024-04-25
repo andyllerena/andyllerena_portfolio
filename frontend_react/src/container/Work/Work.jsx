@@ -33,14 +33,15 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">My Creative <span className="text-secondary">Portfolio</span> Section</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">My Creative <span className="text-[#67a0ec]">Portfolio</span> Section</h2>
 
       <div className="flex flex-wrap justify-center items-center my-16">
-        {['Full-Stack', 'React JS', 'Python', 'UI/UX'].map((item, index) => (
+        {['Full-Stack', 'React JS', 'Python', 'UI/UX', 'All'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
-            className={`p-2 md:p-4 rounded-lg bg-white text-black font-bold cursor-pointer transition duration-300 m-2 hover:bg-secondary hover:text-white ${activeFilter === item ? 'bg-secondary text-white' : ''}`}
+            className={`p-2 md:p-4 rounded-lg font-bold cursor-pointer transition duration-250 m-2 
+              ${activeFilter === item ? 'bg-black text-white' : 'bg-white text-black hover:bg-black hover:text-white'}`}
           >
             {item}
           </div>
@@ -61,11 +62,11 @@ const Work = () => {
                 transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
                 className="absolute inset-0 w-full h-full bg-black bg-opacity-50 rounded-lg opacity-0 transition duration-300 flex justify-center items-center"
               >
-                <a href={work.projectLink} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-black bg-opacity-50 flex justify-center items-center hover:scale-110 transition duration-300">
-                  <AiFillEye className="text-white text-2xl" />
+                <a href={work.projectLink} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-white bg-opacity-70 flex justify-center items-center hover:scale-110 transition duration-300 mr-4">
+                  <AiFillEye className="text-black text-2xl" />
                 </a>
-                <a href={work.codeLink} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-black bg-opacity-50 flex justify-center items-center hover:scale-110 transition duration-300">
-                  <AiFillGithub className="text-white text-2xl" />
+                <a href={work.codeLink} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-white bg-opacity-70 flex justify-center items-center hover:scale-110 transition duration-300">
+                  <AiFillGithub className="text-black text-2xl" />
                 </a>
               </motion.div>
             </div>

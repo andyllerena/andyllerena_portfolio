@@ -25,7 +25,7 @@ const Navbar = () => {
               onClick={() => handleLinkClick(item)}>
             <div className="w-1 h-1 rounded-full bg-transparent mb-1"></div>
             <a href={`#${item}`} 
-               className="uppercase text-gray-500 font-medium no-underline hover:text-secondary transition-colors duration-300 ease-in-out group-hover:scale-105">
+               className="uppercase text-black font-bold no-underline hover:text-secondary transition-colors duration-300 ease-in-out group-hover:scale-105">
               {item}
             </a>
           </li>
