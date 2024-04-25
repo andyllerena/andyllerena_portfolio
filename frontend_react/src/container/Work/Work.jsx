@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { AiFillEye, AiFillGithub } from 'react-icons/ai';
 import { motion } from 'framer-motion';
 import { urlFor, client } from '../../client';
-import './Work.scss'
-
 
 const Work = () => {
   const [works, setWorks] = useState([]);
@@ -13,7 +11,6 @@ const Work = () => {
 
   useEffect(() => {
     const query = '*[_type == "works"]';
-
     client.fetch(query).then((data) => {
       setWorks(data);
       setFilterWork(data);
@@ -26,7 +23,6 @@ const Work = () => {
 
     setTimeout(() => {
       setAnimateCard([{ y: 0, opacity: 1 }]);
-
       if (item === 'All') {
         setFilterWork(works);
       } else {
@@ -37,14 +33,14 @@ const Work = () => {
 
   return (
     <>
-      <h2 className="head-text">My Creative <span>Portfolio</span> Section</h2>
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">My Creative <span className="text-secondary">Portfolio</span> Section</h2>
 
-      <div className="app__work-filter">
-        {['UI/UX', 'Web App', 'Mobile App', 'React JS', 'All'].map((item, index) => (
+      <div className="flex flex-wrap justify-center items-center my-16">
+        {['Full-Stack', 'React JS', 'Python', 'UI/UX'].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
-            className={`app__work-filter-item app__flex p-text ${activeFilter === item ? 'item-active' : ''}`}
+            className={`p-2 md:p-4 rounded-lg bg-white text-black font-bold cursor-pointer transition duration-300 m-2 hover:bg-secondary hover:text-white ${activeFilter === item ? 'bg-secondary text-white' : ''}`}
           >
             {item}
           </div>
@@ -54,50 +50,31 @@ const Work = () => {
       <motion.div
         animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
-        className="app__work-portfolio"
+        className="flex flex-wrap justify-center items-center"
       >
         {filterWork.map((work, index) => (
-          <div className="app__work-item app__flex" key={index}>
-            <div
-              className="app__work-img app__flex"
-            >
-              <img src={urlFor(work.imgUrl)} alt={work.name} />
-
+          <div className="w-64 md:w-[470px] flex flex-col m-8 p-4 rounded-lg bg-white text-black cursor-pointer transition duration-300 hover:shadow-xl" key={index}>
+            <div className="relative w-full h-56 md:h-96">
+              <img src={urlFor(work.imgUrl)} alt={work.name} className="w-full h-full rounded-lg object-cover" />
               <motion.div
-                whileHover={{ opacity: [0, 1] }}
+                whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
-                className="app__work-hover app__flex"
+                className="absolute inset-0 w-full h-full bg-black bg-opacity-50 rounded-lg opacity-0 transition duration-300 flex justify-center items-center"
               >
-                <a href={work.projectLink} target="_blank" rel="noreferrer">
-
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.90] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillEye />
-                  </motion.div>
+                <a href={work.projectLink} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-black bg-opacity-50 flex justify-center items-center hover:scale-110 transition duration-300">
+                  <AiFillEye className="text-white text-2xl" />
                 </a>
-                <a href={work.codeLink} target="_blank" rel="noreferrer">
-                  <motion.div
-                    whileInView={{ scale: [0, 1] }}
-                    whileHover={{ scale: [1, 0.90] }}
-                    transition={{ duration: 0.25 }}
-                    className="app__flex"
-                  >
-                    <AiFillGithub />
-                  </motion.div>
+                <a href={work.codeLink} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-black bg-opacity-50 flex justify-center items-center hover:scale-110 transition duration-300">
+                  <AiFillGithub className="text-white text-2xl" />
                 </a>
               </motion.div>
             </div>
 
-            <div className="app__work-content app__flex">
-              <h4 className="bold-text">{work.title}</h4>
-              <p className="p-text" style={{ marginTop: 10 }}>{work.description}</p>
-
-              <div className="app__work-tag app__flex">
-                <p className="p-text">{work.tags[0]}</p>
+            <div className="flex flex-col mt-4">
+              <h4 className="text-xl font-bold">{work.title}</h4>
+              <p className="mt-2 text-sm">{work.description}</p>
+              <div className="absolute -top-6 px-4 py-2 rounded-xl bg-white">
+                <p>{work.tags[0]}</p>
               </div>
             </div>
           </div>
@@ -107,5 +84,4 @@ const Work = () => {
   );
 };
 
-export default Work
-
+export default Work;

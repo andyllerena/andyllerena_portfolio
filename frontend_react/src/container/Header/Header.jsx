@@ -18,14 +18,14 @@ const scaleVariants = {
 
 const Header = () => {
   return (
-    <section className={`relative shrink-0 w-full h-screen mx-auto ${styles.paddingX} pt-[120px] max-w-7xl mx-auto flex items-start justify-between`}>
+    <section className={`relative shrink-0 w-full h-auto mx-auto ${styles.paddingX} pt-[120px] max-w-7xl mx-auto flex items-start justify-between`}>
       {/* Container for the header */}
       <div className='app__header flex'>
         {/* Using Framer Motion for animation */}
         <motion.div
           whileInView={{ x: [-100, 0], opacity: [0, 1] }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col md:flex-row justify-between items-center mt-5 gap-3"
+          className="flex flex-col md:flex-row justify-between items-center mt-5 gap-3 mb-20"
         >
           {/* Left side content */}
           <div className='flex flex-col gap-3 md:gap-5'>
