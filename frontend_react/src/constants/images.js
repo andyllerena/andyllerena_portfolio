@@ -41,6 +41,7 @@ import github from '../assets/github.png'
 import LinkedIn from '../assets/LinkedIn.png'
 import gmail from '../assets/gmail.png'
 import nameLogo from '../assets/nameLogo.png'
+import logo1 from '../assets/logo1.png'
 
 export default {
   email,
@@ -80,5 +81,6 @@ export default {
   github,
   LinkedIn,
   gmail,
-  nameLogo
+  nameLogo,
+  logo1
 };

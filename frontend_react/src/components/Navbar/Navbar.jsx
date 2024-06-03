@@ -3,20 +3,21 @@ import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import { images } from '../../constants';
 import { styles } from '../../styles';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  const [active, setActive] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLinkClick = (item) => {
-    setActive(item);
     setToggle(false);
+    navigate(`#${item}`, { replace: true }); // Use navigate to scroll to the section
   };
 
   return (
     <nav className={`${styles.paddingX} fixed z-10 w-full bg-white/25 backdrop-blur-md border border-white/18 p-4 flex justify-between items-center`}>
       <div className="flex items-center justify-start">
-        <img src={images.nameLogo} alt="logo" className="w-20 h-5 md:w-40 md:h-10" />
+        <img src={images.logo1} alt="logo" className="w-20 h-5 md:w-40 md:h-10" />
       </div>
       <ul className="hidden md:flex md:flex-1 justify-center items-center list-none">
         {['home', 'about', 'work', 'skills'].map((item) => (

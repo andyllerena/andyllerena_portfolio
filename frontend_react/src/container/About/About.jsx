@@ -27,8 +27,8 @@ const About = () => {
             key={about.title + index}
             style={{ minWidth: '190px' }}
           >
-            <h2 className="text-xl font-bold mt-5 max-w-5xl  leading-[30px] text-[32px] mb-2">{about.title}</h2>
-            <p className="text-base mt-2.5 mb-10">{about.description}</p>
+            <h2 className="text-xl font-bold mt-5 max-w-5xl  leading-[30px] text-[35px] mb-2">{about.title}</h2>
+            <p className="text-[20px] mt-2.5 mb-10">{about.description}</p>
           </motion.div>
         ))}
     </div>
