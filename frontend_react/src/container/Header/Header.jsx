@@ -38,7 +38,7 @@ const Header = () => {
               <a href='https://www.linkedin.com/in/andy-llerena-93044129a/' target='__blank'>
                 <img src={images.LinkedIn} alt='LinkedIn' className='w-7 md:w-10 hover:scale-105' />
               </a>
-              <a href='mailto:cdtaayushgupta@gmail.com' target='__blank'>
+              <a href='andyllerena28@gmail.com' target='__blank'>
                 <img src={images.gmail} alt='Gmail' className='w-7 md:w-10 hover:scale-105' />
               </a>
             </div>
